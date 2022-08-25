@@ -14,13 +14,26 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    function coutnerUP() {}
     const App = () => {
-      const [counter, modifier] = React.useState(0, coutnerUP);
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        // JSX도 js의 이밴트 리스너처럼 tag의 값을 인수로 전달받아 사용할 수 있다.
+        setMinutes(event.target.value);
+      };
       return (
         <div>
-          <h3>Total clicks : {counter}</h3>
-          <button>Click me</button>
+          <h1 className="hi">Super Comverter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minute"
+            type="number"
+            onChange={onChange}
+          />
+          <h4>You want to convert {minutes}</h4>
+          <label htmlFor="hours">Hours</label>
+          <input id="hours" placeholder="Hours" type="number" />
         </div>
       );
     };
