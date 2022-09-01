@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react-scripts";
+import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
 
 function Home() {
@@ -14,10 +14,11 @@ function Home() {
     setMovies(json.data.movies);
     setLoading(false);
   };
+
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
+
   return (
     <div>
       {loading ? (
